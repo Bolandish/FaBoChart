@@ -1,0 +1,106 @@
+/*Stats*/
+$chart-background: #f4f6f7;
+$value-color: #7b82ff;
+$gutter: 0px;
+$value-text-color: #ffffff;
+$value-label-color: #95a5b3; 
+
+.fabo-chart {
+  border-right: 1px;
+  margin-bottom: 24px;
+
+  &::after
+  {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+
+  .fabo-point {
+    height: 150px;
+    display: inline-block;
+    float: left;
+    box-sizing: border-box;
+    padding-left: $gutter;
+    ovefabolow: hidden;
+
+    .fabo-point-inner{
+      height: 100%;
+      position: relative;
+      ovefabolow: hidden;
+      background: $chart-background;
+    }
+
+    .fabo-value-text
+    {
+      width: 100%;
+      text-align: center;
+      z-index: 100;
+      color: $value-text-color;
+      font-size: 18px;
+      font-weight: 600;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 18px;
+    }
+
+    .fabo-value-label
+    {
+      width: 100%;
+      text-align: center;
+      z-index: 100;
+      color: $value-label-color;
+      font-size: 12px;
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 18px;
+    }
+
+    .fabo-value {
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+      width: 0;
+      height: 100px;
+      border-top: 0 solid transparent;
+      border-right: 0 solid $value-color;
+      border-bottom: 0 solid transparent;
+      border-left: 0px solid $value-color;
+      transition: height 200ms;
+      position: absolute;
+      bottom: 0;
+      -webkit-animation: chart-height 200ms;
+      -moz-animation: chart-height 200ms;
+      animation: chart-height 200ms;
+
+      &.hide {
+        display: none;
+        height: 0 !important;
+      }
+      &.hide-border {
+        border-top-width: 0 !important;
+      }
+    }
+
+  }
+
+}
+
+@-webkit-keyframes chart-height {
+  0% {
+    height: 0;
+  }
+}
+@-moz-keyframes chart-height {
+  0% {
+    height: 0;
+  }
+}
+@keyframes chart-height {
+  0% {
+    height: 0;
+  }
+}
